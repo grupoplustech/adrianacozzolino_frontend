@@ -1,9 +1,9 @@
 ---
 ---
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#080b11]/80 backdrop-blur-md border-b border-slate-800/60 transition-all duration-300">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#080b11]/85 backdrop-blur-md border-b border-slate-800/60 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
     <!-- Brand Logo -->
-    <a href="#inicio" class="flex items-center gap-3 group">
+    <a href="/#inicio" class="flex items-center gap-3 group">
       <div class="w-10 h-10 rounded-full border border-gold-500/50 bg-gold-500/10 flex items-center justify-center text-gold-400 font-serif font-bold text-lg group-hover:border-gold-400 group-hover:scale-105 transition-all">
         AC
       </div>
@@ -18,24 +18,37 @@
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="#inicio" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Inicio</a>
-      <a href="#trayectoria" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Trayectoria</a>
-      <a href="#proyectos" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Proyectos</a>
-      <a href="#filosofia" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Filosofía</a>
-      <a href="#galeria" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Galería</a>
-      <a href="#contacto" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Contacto</a>
+    <nav class="hidden md:flex items-center gap-7">
+      <a href="/#inicio" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Inicio</a>
+      <a href="/#trayectoria" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Trayectoria</a>
+      <a href="/#proyectos" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Proyectos</a>
+      <a href="/#filosofia" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Filosofía</a>
+      <a href="/#galeria" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Galería</a>
+      <a href="/vcard" class="text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+          <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
+        </svg>
+        Tarjeta Digital
+      </a>
+      <a href="/#contacto" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Contacto</a>
     </nav>
 
     <!-- Header Actions -->
-    <div class="hidden md:flex items-center gap-4">
+    <div class="hidden md:flex items-center gap-3">
+      <a 
+        href="/adriana-cozzolino.vcf" 
+        download="Adriana_Cozzolino.vcf"
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 hover:bg-gold-500 hover:text-black text-gold-300 text-xs font-semibold tracking-wider uppercase transition-all duration-300"
+      >
+        <span>Guardar vCard</span>
+      </a>
       <a 
         href="https://www.instagram.com/adriario/" 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/40 bg-gold-500/5 hover:bg-gold-500 hover:text-black text-gold-400 text-xs font-semibold tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-gold-500/20"
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-700 bg-slate-900/60 hover:border-gold-400 text-slate-300 hover:text-gold-400 text-xs font-semibold tracking-wider transition-all duration-300"
       >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
         </svg>
         <span>@adriario</span>
@@ -56,17 +69,25 @@
 
   <!-- Mobile Dropdown -->
   <div id="mobile-menu" class="hidden md:hidden bg-[#0c101a] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
-    <a href="#inicio" class="block text-base font-medium text-slate-200 hover:text-gold-400">Inicio</a>
-    <a href="#trayectoria" class="block text-base font-medium text-slate-200 hover:text-gold-400">Trayectoria</a>
-    <a href="#proyectos" class="block text-base font-medium text-slate-200 hover:text-gold-400">Proyectos</a>
-    <a href="#filosofia" class="block text-base font-medium text-slate-200 hover:text-gold-400">Filosofía</a>
-    <a href="#galeria" class="block text-base font-medium text-slate-200 hover:text-gold-400">Galería</a>
-    <a href="#contacto" class="block text-base font-medium text-slate-200 hover:text-gold-400">Contacto</a>
-    <div class="pt-2">
+    <a href="/#inicio" class="block text-base font-medium text-slate-200 hover:text-gold-400">Inicio</a>
+    <a href="/#trayectoria" class="block text-base font-medium text-slate-200 hover:text-gold-400">Trayectoria</a>
+    <a href="/#proyectos" class="block text-base font-medium text-slate-200 hover:text-gold-400">Proyectos</a>
+    <a href="/#filosofia" class="block text-base font-medium text-slate-200 hover:text-gold-400">Filosofía</a>
+    <a href="/#galeria" class="block text-base font-medium text-slate-200 hover:text-gold-400">Galería</a>
+    <a href="/vcard" class="block text-base font-medium text-gold-400 hover:text-gold-300">Tarjeta Digital & vCard</a>
+    <a href="/#contacto" class="block text-base font-medium text-slate-200 hover:text-gold-400">Contacto</a>
+    <div class="pt-3 border-t border-slate-800 flex flex-col gap-2">
+      <a 
+        href="/adriana-cozzolino.vcf" 
+        download="Adriana_Cozzolino.vcf"
+        class="inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gold-400 text-black text-xs font-bold uppercase tracking-wider"
+      >
+        Guardar en Contactos (.vcf)
+      </a>
       <a 
         href="https://www.instagram.com/adriario/" 
         target="_blank" 
-        class="inline-flex items-center gap-2 text-gold-400 text-sm font-semibold"
+        class="inline-flex items-center gap-2 text-slate-300 text-xs font-semibold"
       >
         <span>Instagram: @adriario</span>
       </a>

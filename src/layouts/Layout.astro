@@ -7,11 +7,61 @@ interface Props {
 
 const { 
   title, 
-  description = "Portal oficial de Adriana Cozzolino: Superintendente de Arte y Cultura de la Alcaldía de Baruta, Productora Ejecutiva de Eventos, Estratega de Marcas y Gestora Cultural.",
-  image = "/images/adriana-cozzolino-hero.webp" 
+  description = "Portal oficial de Adriana Cozzolino, Superintendente del Servicio Autónomo de Arte y Cultura de Baruta. Productora ejecutiva, creadora de CaminArte y gestora cultural con más de 18 años de trayectoria.",
+  image = "/images/tarjeta-presentacion-qr.png" 
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://adrianacozzolino.com');
+const canonicalURL = new URL(Astro.url.pathname, "https://adrianacozzolino.com").toString();
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://adrianacozzolino.com/#person",
+      "name": "Adriana Carolina Cozzolino",
+      "alternateName": ["Adriana Cozzolino", "Adriario"],
+      "jobTitle": "Superintendente de Arte y Cultura de Baruta",
+      "description": "Licenciada en Comunicación Social y Especialista en Marketing. Productora ejecutiva con más de 18 años de experiencia en planificación, producción y dirección de iniciativas culturales masivas y espacios públicos en Caracas.",
+      "image": "https://adrianacozzolino.com/images/adriana-cozzolino-portrait.webp",
+      "url": "https://adrianacozzolino.com",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad Santa María",
+        "sameAs": "https://es.wikipedia.org/wiki/Universidad_Santa_Mar%C3%ADa_(Venezuela)"
+      },
+      "worksFor": {
+        "@type": "GovernmentOrganization",
+        "name": "Alcaldía de Baruta - Servicio Autónomo de Arte y Cultura",
+        "department": "Baruta Cultural",
+        "url": "https://adrianacozzolino.com"
+      },
+      "knowsAbout": [
+        "Gestión Cultural y Políticas de Espacio Público",
+        "Producción Ejecutiva de Eventos Masivos",
+        "CaminArte (Corredor Cultural a Cielo Abierto)",
+        "Estrategia de Marcas y Patrocinios",
+        "Video Mapping y Nuevas Tecnologías Urbanas",
+        "Concha Acústica de Bello Monte"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/adriario/",
+        "https://www.instagram.com/barutacultural/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://adrianacozzolino.com/#website",
+      "url": "https://adrianacozzolino.com",
+      "name": "Adriana Cozzolino | Superintendente de Arte y Cultura de Baruta",
+      "description": description,
+      "publisher": {
+        "@id": "https://adrianacozzolino.com/#person"
+      },
+      "inLanguage": "es-VE"
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -21,8 +71,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://adrianac
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="Adriana Cozzolino, Superintendente de Arte y Cultura, Baruta Cultural, CaminArte, CaminArte Bello Monte, Concha Acústica de Bello Monte, Nos Vemos en la Concha, gestión cultural Venezuela, eventos culturales Caracas, producción de eventos masivos, arte urbano Caracas, Alcaldía de Baruta, cultura ciudadana, espacio público Caracas, vCard Adriana Cozzolino" />
+    <meta name="author" content="Adriana Cozzolino" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
@@ -30,48 +85,34 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://adrianac
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site || 'https://adrianacozzolino.com')} />
+    <meta property="og:image" content={new URL(image, "https://adrianacozzolino.com").toString()} />
+    <meta property="og:locale" content="es_VE" />
+    <meta property="og:site_name" content="Adriana Cozzolino - Gestión Cultural" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.site || 'https://adrianacozzolino.com')} />
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, "https://adrianacozzolino.com").toString()} />
+    <meta name="twitter:creator" content="@adriario" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Schema.org Person Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Adriana Cozzolino",
-      "jobTitle": "Superintendente de Arte y Cultura de la Alcaldía de Baruta",
-      "worksFor": {
-        "@type": "GovernmentOrganization",
-        "name": "Alcaldía de Baruta - Baruta Cultural"
-      },
-      "alumniOf": "Universidad Santa María",
-      "url": "https://adrianacozzolino.com",
-      "image": "https://adrianacozzolino.com/images/adriana-cozzolino-hero.webp",
-      "sameAs": [
-        "https://www.instagram.com/adriario/",
-        "https://www.instagram.com/barutacultural/"
-      ],
-      "knowsAbout": [
-        "Gestión Cultural",
-        "Producción de Eventos Masivos",
-        "Espacio Público y Convivencia",
-        "CaminArte",
-        "Marketing Estratégico",
-        "Comunicación Social"
-      ]
-    })} />
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   </head>
-  <body class="bg-[#080b11] text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-black">
+  <body class="bg-[#080b11] text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-black min-h-screen flex flex-col">
     <slot />
   </body>
 </html>
+
+<style is:global>
+  ::selection {
+    background-color: #d4af37;
+    color: #080b11;
+  }
+</style>
