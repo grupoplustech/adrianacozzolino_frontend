@@ -1,24 +1,24 @@
 ---
 ---
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#080b11]/85 backdrop-blur-md border-b border-slate-800/60 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#080b11]/90 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
     <!-- Brand Logo -->
-    <a href="/#inicio" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-full border border-gold-500/50 bg-gold-500/10 flex items-center justify-center text-gold-400 font-serif font-bold text-lg group-hover:border-gold-400 group-hover:scale-105 transition-all">
+    <a href="/#inicio" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none">
+      <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-gold-500/50 bg-gold-500/10 flex items-center justify-center text-gold-400 font-serif font-bold text-base sm:text-lg group-hover:border-gold-400 group-hover:scale-105 transition-all flex-shrink-0">
         AC
       </div>
-      <div class="flex flex-col">
-        <span class="font-serif tracking-wider text-base sm:text-lg font-bold text-slate-100 group-hover:text-gold-400 transition-colors">
+      <div class="flex flex-col min-w-0">
+        <span class="font-serif tracking-wider text-sm sm:text-base lg:text-lg font-bold text-slate-100 group-hover:text-gold-400 transition-colors truncate">
           ADRIANA COZZOLINO
         </span>
-        <span class="text-[10px] sm:text-xs tracking-widest text-gold-400/90 uppercase font-sans font-medium">
+        <span class="text-[9px] sm:text-[10px] lg:text-xs tracking-widest text-gold-400/90 uppercase font-sans font-medium truncate">
           Arte • Cultura • Dirección
         </span>
       </div>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-7">
+    <nav class="hidden lg:flex items-center gap-6 xl:gap-7">
       <a href="/#inicio" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Inicio</a>
       <a href="/#trayectoria" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Trayectoria</a>
       <a href="/#proyectos" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Proyectos</a>
@@ -33,8 +33,8 @@
       <a href="/#contacto" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Contacto</a>
     </nav>
 
-    <!-- Header Actions -->
-    <div class="hidden md:flex items-center gap-3">
+    <!-- Header Actions (Desktop) -->
+    <div class="hidden lg:flex items-center gap-3">
       <a 
         href="/adriana-cozzolino.vcf" 
         download="Adriana_Cozzolino.vcf"
@@ -55,11 +55,11 @@
       </a>
     </div>
 
-    <!-- Mobile menu button -->
+    <!-- Mobile menu button (Accessible touch target >= 44px) -->
     <button 
       id="mobile-menu-btn" 
-      aria-label="Abrir menú" 
-      class="md:hidden text-slate-300 hover:text-gold-400 p-2 focus:outline-none"
+      aria-label="Abrir menú de navegación" 
+      class="lg:hidden text-slate-300 hover:text-gold-400 p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none rounded-lg"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -68,26 +68,32 @@
   </div>
 
   <!-- Mobile Dropdown -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#0c101a] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
-    <a href="/#inicio" class="block text-base font-medium text-slate-200 hover:text-gold-400">Inicio</a>
-    <a href="/#trayectoria" class="block text-base font-medium text-slate-200 hover:text-gold-400">Trayectoria</a>
-    <a href="/#proyectos" class="block text-base font-medium text-slate-200 hover:text-gold-400">Proyectos</a>
-    <a href="/#filosofia" class="block text-base font-medium text-slate-200 hover:text-gold-400">Filosofía</a>
-    <a href="/#galeria" class="block text-base font-medium text-slate-200 hover:text-gold-400">Galería</a>
-    <a href="/vcard" class="block text-base font-medium text-gold-400 hover:text-gold-300">Tarjeta Digital & vCard</a>
-    <a href="/#contacto" class="block text-base font-medium text-slate-200 hover:text-gold-400">Contacto</a>
-    <div class="pt-3 border-t border-slate-800 flex flex-col gap-2">
+  <div id="mobile-menu" class="hidden lg:hidden bg-[#0a0e17] border-b border-slate-800 px-4 pt-3 pb-6 space-y-2.5 shadow-2xl">
+    <a href="/#inicio" class="block py-2 px-3 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/40">Inicio</a>
+    <a href="/#trayectoria" class="block py-2 px-3 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/40">Trayectoria</a>
+    <a href="/#proyectos" class="block py-2 px-3 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/40">Proyectos Insignia</a>
+    <a href="/#filosofia" class="block py-2 px-3 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/40">Filosofía</a>
+    <a href="/#galeria" class="block py-2 px-3 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/40">Galería</a>
+    <a href="/vcard" class="block py-2 px-3 rounded-lg text-base font-semibold text-gold-400 hover:text-gold-300 hover:bg-gold-500/10 flex items-center gap-2">
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
+      </svg>
+      Tarjeta Digital & vCard
+    </a>
+    <a href="/#contacto" class="block py-2 px-3 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/40">Contacto</a>
+    
+    <div class="pt-3 border-t border-slate-800 flex flex-col gap-2.5">
       <a 
         href="/adriana-cozzolino.vcf" 
         download="Adriana_Cozzolino.vcf"
-        class="inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gold-400 text-black text-xs font-bold uppercase tracking-wider"
+        class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-gold-400 to-gold-600 text-black text-xs font-bold uppercase tracking-wider shadow-md"
       >
         Guardar en Contactos (.vcf)
       </a>
       <a 
         href="https://www.instagram.com/adriario/" 
         target="_blank" 
-        class="inline-flex items-center gap-2 text-slate-300 text-xs font-semibold"
+        class="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-slate-700 text-slate-300 text-xs font-semibold"
       >
         <span>Instagram: @adriario</span>
       </a>
