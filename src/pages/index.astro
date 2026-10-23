@@ -1,0 +1,570 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    title: "CaminArte",
+    subtitle: "Colinas de Bello Monte",
+    category: "Corredor Cultural a Cielo Abierto",
+    description: "La mayor intervención cultural peatonal de Venezuela: 3,7 kilómetros convertidos en un circuito de arte continuo con acceso 100% gratuito, 80 estaciones de arte plástico y urbano, 5 escenarios musicales y 10 horas de programación ininterrumpida.",
+    impact: "+70.000 Asistentes • 663 Artistas • 80 Estaciones",
+    image: "/images/caminarte-opera-balcon.webp",
+    featured: true
+  },
+  {
+    title: "Nos Vemos en la Concha",
+    subtitle: "Concha Acústica de Bello Monte",
+    category: "Alta Cultura & Espacio Público",
+    description: "Programación artística de primer nivel con entrada libre en el icónico anfiteatro municipal: orquestas sinfónicas, ópera, montajes teatrales y espectáculos internacionales que devuelven la dignidad del disfrute cultural colectivo.",
+    impact: "Aforo Pleno • Entrada Gratuita • Eventos Mensuales",
+    image: "/images/concha-acustica-concierto.webp",
+    featured: true
+  },
+  {
+    title: "Rock en el Parque",
+    subtitle: "Parques Verdes de Baruta",
+    category: "Música & Espacios Naturales",
+    description: "Una toma del espacio público segura, experiencial y familiar para conectar a las familias a través del rock nacional al aire libre, con respeto, energía comunitaria y sentido de pertenencia.",
+    impact: "Experiencia Multigeneracional • Seguridad Integral",
+    image: "/images/rock-en-el-parque.webp",
+    featured: false
+  },
+  {
+    title: "Next Generation Jazz",
+    subtitle: "En Alianza con Ávila Jazz Fest",
+    category: "Talento Emergente & Fusión",
+    description: "Plataforma formativa y de difusión para que el talento joven dialogue entre el jazz y los instrumentos tradicionales venezolanos, rescatando nuestras raíces mirando hacia el futuro.",
+    impact: "Alianza CVA • Formación Artística • Nuevos Circuitos",
+    image: "/images/caminarte-concierto-escenario.webp",
+    featured: false
+  },
+  {
+    title: "La Movida",
+    subtitle: "Circuito Itinerante Municipal",
+    category: "Cultura en Cada Comunidad",
+    description: "Gestión cultural descentralizada que viaja directamente a los parques, plazas y sectores residenciales de Baruta, acercando talleres, títeres, música y recreación a cada rincón vecinal.",
+    impact: "Descentralización Cultural • Cobertura en Plazas",
+    image: "/images/la-movida-parques.webp",
+    featured: false
+  },
+  {
+    title: "C.A.L.M.A",
+    subtitle: "Salud Integral & Vida Consciente",
+    category: "Bienestar & Encuentro Terapéutico",
+    description: "Herramientas de pausa, respiración y bienestar emocional frente al ritmo acelerado de la vida moderna, combinando yoga, sonoterapia, psicología comunitaria y naturaleza.",
+    impact: "Salud Mental • Prácticas Conscientes al Aire Libre",
+    image: "/images/baruta-cultural-talleres.webp",
+    featured: false
+  }
+];
+
+const quotes = [
+  {
+    event: "CaminArte",
+    quote: "CaminArte es nuestra apuesta más grande: llevar el arte a las calles de Baruta de forma completamente gratuita, para que cada vecino, sin importar su contexto, viva la cultura como un derecho y no como un privilegio.",
+    metric: "70.000+ Asistentes en Bello Monte"
+  },
+  {
+    event: "Nos Vemos en la Concha",
+    quote: "El corazón cultural de Baruta y de Caracas. Garantizar espectáculos de primer nivel con entrada libre en la Concha Acústica de Colinas de Bello Monte es devolverle a la ciudad la dignidad del disfrute cultural colectivo.",
+    metric: "Anfiteatro Emblema de la Ciudad"
+  },
+  {
+    event: "Rock en el Parque",
+    quote: "Una experiencia para conectar a las familias a través del rock nacional en espacios naturales seguros. Queremos que la música vuelva a vivirse al aire libre, con respeto, energía y sentido de pertenencia.",
+    metric: "Convivencia & Espacio Público"
+  },
+  {
+    event: "Next Generation Jazz",
+    quote: "En alianza con Ávila Jazz Fest, abrimos una plataforma única para que el talento joven dialogue entre el jazz y los instrumentos tradicionales venezolanos. Es rescatar nuestras raíces mirando hacia el futuro.",
+    metric: "Fusión Raíz y Vanguardia"
+  },
+  {
+    event: "La Movida",
+    quote: "Cultura itinerante que llega a las distintas comunidades de Baruta. Creemos en una gestión cercana, donde el arte y la recreación no se concentren en un solo lugar, sino que caminen junto a la gente.",
+    metric: "Presencia Activa en Comunidades"
+  },
+  {
+    event: "C.A.L.M.A",
+    quote: "Más que un evento, un espacio de bienestar y salud integral. Frente al ritmo acelerado de la vida moderna, ofrecemos herramientas para pausar, respirar, sanar y reencontrarnos con nosotros mismos en comunidad.",
+    metric: "Salud Integral & Pausa Colectiva"
+  },
+  {
+    event: "Huele a Navidad",
+    quote: "Nuestras tradiciones son el pegamento que nos une. Rescatamos el espíritu decembrino con música, arte popular y gastronomía, creando memorias que fortalecen la identidad y la unión familiar baruteña.",
+    metric: "Tradición e Identidad Local"
+  },
+  {
+    event: "Festival de Corales",
+    quote: "El canto colectivo como expresión de disciplina, armonía y belleza. Reunir las voces de niños, jóvenes y adultos demuestra que cuando nos sincronizamos, somos capaces de construir algo extraordinario.",
+    metric: "Armonía Intergeneracional"
+  },
+  {
+    event: "Talleres Casa de la Cultura",
+    quote: "La cultura no solo se contempla, se aprende. A través de nuestros talleres de música, danza, teatro y artes plásticas, formamos a las próximas generaciones de creadores y brindamos herramientas de vida a la juventud.",
+    metric: "Semillero Artístico Baruteño"
+  },
+  {
+    event: "Premio a la Excelencia Académica",
+    quote: "Reconocemos el esfuerzo de jóvenes que combinan el mérito académico con la pasión por el arte. Queremos decirles que el talento tiene futuro y que en Baruta creemos en su potencial como motores de cambio.",
+    metric: "Impulso al Mérito Juvenil"
+  }
+];
+
+const gallery = [
+  {
+    title: "Ópera en los Balcones de Bello Monte",
+    event: "CaminArte 2026",
+    img: "/images/caminarte-opera-balcon.webp",
+    aspect: "col-span-1 md:col-span-2 row-span-2"
+  },
+  {
+    title: "Adriana Cozzolino en Dirección Operativa",
+    event: "Gestión Cultural",
+    img: "/images/adriana-cozzolino-gestion.webp",
+    aspect: "col-span-1"
+  },
+  {
+    title: "70.000 Personas en el Corredor Cultural",
+    event: "CaminArte 2026",
+    img: "/images/caminarte-multitud-noche.webp",
+    aspect: "col-span-1"
+  },
+  {
+    title: "Gran Concierto y Mapping de Fachada",
+    event: "CaminArte 2026",
+    img: "/images/caminarte-concierto-escenario.webp",
+    aspect: "col-span-1 md:col-span-2"
+  },
+  {
+    title: "Rock en el Parque",
+    event: "Espacio Público Familiar",
+    img: "/images/rock-en-el-parque.webp",
+    aspect: "col-span-1"
+  },
+  {
+    title: "Intervención Artística y Detección Urbana",
+    event: "Baruta Cultural",
+    img: "/images/caminarte-arte-callejero.webp",
+    aspect: "col-span-1"
+  },
+  {
+    title: "Adriana Cozzolino en Convocatoria Pública",
+    event: "Dirección y Liderazgo",
+    img: "/images/adriana-cozzolino-speech.webp",
+    aspect: "col-span-1 md:col-span-2"
+  },
+  {
+    title: "Muralismo y Creación Comunitaria",
+    event: "Artes Plásticas",
+    img: "/images/caminarte-mural-interactivo.webp",
+    aspect: "col-span-1"
+  }
+];
+---
+
+<Layout title="Adriana Cozzolino | Superintendente de Arte y Cultura de Baruta">
+  <Navbar />
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden bg-gradient-to-b from-[#080b11] via-[#0d121c] to-[#080b11]">
+      <!-- Decorative background blur circles -->
+      <div class="absolute top-1/4 -left-48 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 -right-48 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Text Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-xs font-semibold tracking-wider uppercase">
+              <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+              Superintendente de Arte y Cultura de Baruta
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+              Adriana <br class="hidden sm:inline" />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600">
+                Cozzolino
+              </span>
+            </h1>
+
+            <p class="font-sans text-base sm:text-lg text-slate-300 font-medium leading-relaxed max-w-2xl">
+              Productora ejecutiva y estratega de marcas con más de 18 años de trayectoria. Impulsora de <strong class="text-gold-400 font-semibold">CaminArte</strong> y líder de la transformación del espacio público en un territorio de encuentro, dignidad ciudadana y proyección para el talento artístico nacional.
+            </p>
+
+            <!-- Quick highlights badges -->
+            <div class="flex flex-wrap gap-2 pt-2 text-xs font-medium text-slate-300">
+              <span class="px-3 py-1.5 rounded-lg bg-slate-800/70 border border-slate-700/60">Lic. Comunicación Social</span>
+              <span class="px-3 py-1.5 rounded-lg bg-slate-800/70 border border-slate-700/60">Especialista en Marketing</span>
+              <span class="px-3 py-1.5 rounded-lg bg-slate-800/70 border border-slate-700/60">Directora Baruta Cultural</span>
+              <span class="px-3 py-1.5 rounded-lg bg-slate-800/70 border border-slate-700/60">Logísticas Complejas</span>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-4">
+              <a 
+                href="#proyectos" 
+                class="px-7 py-3.5 rounded-full bg-gradient-to-r from-gold-400 to-gold-600 hover:from-gold-500 hover:to-gold-700 text-black font-semibold text-sm tracking-wide transition-all shadow-lg shadow-gold-500/20 hover:scale-[1.02]"
+              >
+                Conocer Proyectos Insignia
+              </a>
+              <a 
+                href="#filosofia" 
+                class="px-7 py-3.5 rounded-full border border-slate-700 hover:border-gold-500/60 bg-slate-900/40 text-slate-200 hover:text-gold-400 font-semibold text-sm tracking-wide transition-all"
+              >
+                Filosofía de Gestión
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Image Column -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              <!-- Glow backlayer -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-gold-500/20 via-transparent to-blue-500/20 rounded-3xl blur-2xl transform scale-95"></div>
+              
+              <!-- Image card -->
+              <div class="relative rounded-3xl overflow-hidden border border-gold-500/30 bg-[#0f1422] shadow-2xl p-2">
+                <img 
+                  src="/images/adriana-cozzolino-hero.webp" 
+                  alt="Adriana Cozzolino - Superintendente de Arte y Cultura de Baruta" 
+                  class="w-full h-auto object-cover rounded-2xl aspect-[4/5]"
+                  loading="eager"
+                />
+                <div class="p-4 text-center">
+                  <p class="font-serif text-lg font-bold text-slate-100">Adriana Cozzolino</p>
+                  <p class="text-xs text-gold-400 uppercase tracking-widest font-medium mt-0.5">
+                    Alcaldía de Baruta • Baruta Cultural
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY IMPACT STATS BANNER -->
+    <section class="border-y border-slate-800/80 bg-[#06080d]/90 py-10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          
+          <div class="space-y-1">
+            <div class="font-serif text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">
+              +18
+            </div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300">Años de Trayectoria</p>
+            <p class="text-[11px] text-slate-500">Producción y Gestión Cultural</p>
+          </div>
+
+          <div class="space-y-1">
+            <div class="font-serif text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">
+              +70.000
+            </div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300">Asistentes en CaminArte</p>
+            <p class="text-[11px] text-slate-500">Edición Mayo 2026 • Bello Monte</p>
+          </div>
+
+          <div class="space-y-1">
+            <div class="font-serif text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">
+              663
+            </div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300">Artistas Convocados</p>
+            <p class="text-[11px] text-slate-500">Música, Teatro, Danza y Plástica</p>
+          </div>
+
+          <div class="space-y-1">
+            <div class="font-serif text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">
+              80
+            </div>
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-300">Estaciones de Arte</p>
+            <p class="text-[11px] text-slate-500">5 Escenarios a lo largo de 3,7 km</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAYECTORIA Y PERFIL EJECUTIVO -->
+    <section id="trayectoria" class="py-24 bg-[#0a0d14] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Portrait in action -->
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-[#0f1422]">
+              <img 
+                src="/images/adriana-cozzolino-institucional.webp" 
+                alt="Adriana Cozzolino en gestión institucional y eventos culturales" 
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <div class="p-6 bg-gradient-to-t from-[#0f1422] to-transparent">
+                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Liderazgo & Articulación</span>
+                <h3 class="font-serif text-xl font-bold text-white mt-1">Gestión Institucional de Gran Escala</h3>
+                <p class="text-xs text-slate-400 mt-2">
+                  Articulando alianzas con instituciones diplomáticas, sector privado, fundaciones artísticas y las comunidades vecinales.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Profile -->
+          <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+            <div class="space-y-2">
+              <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Trayectoria Profesional</span>
+              <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">
+                Cultura como Derecho y Motor de Convivencia
+              </h2>
+            </div>
+
+            <p class="text-slate-300 leading-relaxed">
+              Adriana Cozzolino es licenciada en Comunicación Social y especialista en Marketing. Actualmente se desempeña como superintendente de Arte y Cultura de la Alcaldía de Baruta. Es productora ejecutiva de eventos y proyectos culturales, con más de 18 años de experiencia en la planificación, organización y producción de iniciativas en espacios públicos y entornos corporativos.
+            </p>
+
+            <p class="text-slate-300 leading-relaxed">
+              En los últimos años ha dedicado parte central de su trabajo al desarrollo de iniciativas culturales gratuitas en espacios públicos, con el propósito fundamental de acercar el arte a todas las personas y generar oportunidades genuinas de encuentro cívico a través de la cultura.
+            </p>
+
+            <p class="text-slate-300 leading-relaxed">
+              Cuenta con una contrastada experiencia en la coordinación de logísticas de alta complejidad, la optimización de recursos y la dirección de equipos multidisciplinarios. Su trayectoria abarca la ejecución operativa de eventos masivos, la articulación con instituciones públicas, empresas privadas y organizaciones de la sociedad civil, así como el diseño e implementación de proyectos de activación de marca y posicionamiento cultural.
+            </p>
+
+            <!-- Key pillars -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              <div class="p-4 rounded-xl border border-slate-800 bg-[#0f1422]/60">
+                <h4 class="font-serif text-sm font-bold text-gold-400">Espacio Público Recuperado</h4>
+                <p class="text-xs text-slate-400 mt-1">Transformar calles, parques y anfiteatros en escenarios de disfrute seguro y pacífico.</p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-800 bg-[#0f1422]/60">
+                <h4 class="font-serif text-sm font-bold text-gold-400">Plataforma Artística Nacional</h4>
+                <p class="text-xs text-slate-400 mt-1">Espacios continuos para que artistas emergentes de música, artes plásticas, danza y teatro proyecten su talento.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROYECTOS INSIGNIA -->
+    <section id="proyectos" class="py-24 bg-[#080b11] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Portafolio de Iniciativas</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">
+            Proyectos que Transforman la Ciudad
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400">
+            Iniciativas de alta convocatoria y trascendencia diseñadas y ejecutadas con rigor operativo y vocación ciudadana.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((proj) => (
+            <div class={`rounded-2xl overflow-hidden border border-slate-800 bg-[#0f1422] flex flex-col justify-between transition-all duration-300 hover:border-gold-500/50 hover:shadow-xl hover:shadow-gold-500/5 ${proj.featured ? 'md:col-span-2 lg:col-span-2' : ''}`}>
+              <div>
+                <div class="relative overflow-hidden aspect-[16/9]">
+                  <img 
+                    src={proj.image} 
+                    alt={proj.title} 
+                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-gold-500/40 text-gold-300 text-[11px] font-semibold uppercase tracking-wider">
+                      {proj.category}
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="p-6 space-y-3">
+                  <div class="flex items-baseline justify-between gap-2">
+                    <h3 class="font-serif text-2xl font-bold text-white">{proj.title}</h3>
+                    <span class="text-xs text-gold-400 font-medium">{proj.subtitle}</span>
+                  </div>
+                  <p class="text-sm text-slate-300 leading-relaxed">
+                    {proj.description}
+                  </p>
+                </div>
+              </div>
+
+              <div class="px-6 pb-6 pt-2 border-t border-slate-800/60 mt-auto">
+                <p class="text-xs font-semibold text-gold-400/90 tracking-wide">
+                  {proj.impact}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FILOSOFÍA: ¿QUÉ SIGNIFICA CADA EVENTO PARA ADRIANA COZZOLINO? -->
+    <section id="filosofia" class="py-24 bg-[#0d121c] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Visión de Liderazgo</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">
+            ¿Qué Significa Cada Evento?
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400">
+            La cultura entendida desde el impacto humano, la memoria colectiva y el compromiso comunitario.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {quotes.map((item, idx) => (
+            <div class="p-8 rounded-2xl border border-slate-800/80 bg-[#080b11]/80 hover:border-gold-500/40 transition-all duration-300 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="font-serif text-lg font-bold text-gold-400">{item.event}</span>
+                  <span class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-slate-800 text-slate-400 font-medium">
+                    #{idx + 1}
+                  </span>
+                </div>
+                <blockquote class="text-slate-300 text-sm leading-relaxed italic border-l-2 border-gold-500/40 pl-4">
+                  "{item.quote}"
+                </blockquote>
+              </div>
+              <div class="pt-4 mt-4 border-t border-slate-800/50">
+                <span class="text-xs text-slate-400 font-medium">Propósito: <strong class="text-slate-200">{item.metric}</strong></span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALERÍA VISUAL DE IMPACTO -->
+    <section id="galeria" class="py-24 bg-[#080b11] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Registro Visual</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">
+            El Arte en las Calles
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400">
+            Momentos inolvidables de convocatoria masiva, intervención arquitectónica y conexión artística en Baruta.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {gallery.map((g) => (
+            <div class={`group relative rounded-2xl overflow-hidden border border-slate-800 bg-[#0f1422] shadow-lg ${g.aspect}`}>
+              <img 
+                src={g.img} 
+                alt={g.title} 
+                class="w-full h-full object-cover min-h-[260px] max-h-[480px] transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-gold-400">{g.event}</span>
+                <h4 class="font-serif text-lg font-bold text-white mt-1">{g.title}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ALIANZAS Y REDES INSTITUCIONALES -->
+    <section class="py-16 bg-[#0a0d14] border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        <span class="text-xs font-semibold uppercase tracking-widest text-slate-500">
+          Alianzas Estratégicas & Circuitos Culturales
+        </span>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 text-slate-400 font-serif text-base sm:text-lg">
+          <span class="hover:text-gold-400 transition-colors">Alcaldía de Baruta</span>
+          <span class="text-slate-700">•</span>
+          <span class="hover:text-gold-400 transition-colors">Baruta Cultural</span>
+          <span class="text-slate-700">•</span>
+          <span class="hover:text-gold-400 transition-colors">Concha Acústica Bello Monte</span>
+          <span class="text-slate-700">•</span>
+          <span class="hover:text-gold-400 transition-colors">Ávila Jazz Fest</span>
+          <span class="text-slate-700">•</span>
+          <span class="hover:text-gold-400 transition-colors">Centro Venezolano Americano</span>
+          <span class="text-slate-700">•</span>
+          <span class="hover:text-gold-400 transition-colors">Fundación Nuevas Bandas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO Y VINCULACIÓN PROFESIONAL -->
+    <section id="contacto" class="py-24 bg-gradient-to-b from-[#080b11] to-[#04060a] relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        
+        <div class="space-y-3">
+          <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Contacto Profesional</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">
+            Conectemos a través de la Cultura
+          </h2>
+          <p class="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+            Para alianzas institucionales, dirección ejecutiva de proyectos culturales, convocatorias artísticas o desarrollo de proyectos de impacto social.
+          </p>
+        </div>
+
+        <!-- Contact cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 max-w-2xl mx-auto text-left">
+          
+          <a 
+            href="https://www.instagram.com/adriario/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="p-6 rounded-2xl border border-slate-800 bg-[#0f1422] hover:border-gold-500/60 transition-all group flex items-center gap-4"
+          >
+            <div class="w-12 h-12 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-slate-400">Instagram Personal</p>
+              <p class="text-base font-bold text-white group-hover:text-gold-400 transition-colors">@adriario</p>
+            </div>
+          </a>
+
+          <a 
+            href="https://www.instagram.com/barutacultural/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="p-6 rounded-2xl border border-slate-800 bg-[#0f1422] hover:border-gold-500/60 transition-all group flex items-center gap-4"
+          >
+            <div class="w-12 h-12 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-slate-400">Canal Institucional</p>
+              <p class="text-base font-bold text-white group-hover:text-gold-400 transition-colors">@barutacultural</p>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="pt-8">
+          <p class="text-xs text-slate-500">
+            Caracas, Venezuela • Alcaldía de Baruta • Gestión Cultural Municipal
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,20 @@
+{
+  "name": "adrianacozzolino-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Portal oficial y carta de presentación de Adriana Cozzolino: Superintendente de Arte y Cultura de Baruta y Productora Ejecutiva",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.5",
+    "@lucide/astro": "^1.61.0",
+    "astro": "^5.1.8",
+    "tailwindcss": "^3.4.17"
+  }
+}

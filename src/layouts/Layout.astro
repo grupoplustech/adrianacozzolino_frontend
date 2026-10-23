@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { 
+  title, 
+  description = "Portal oficial de Adriana Cozzolino: Superintendente de Arte y Cultura de la Alcaldía de Baruta, Productora Ejecutiva de Eventos, Estratega de Marcas y Gestora Cultural.",
+  image = "/images/adriana-cozzolino-hero.webp" 
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://adrianacozzolino.com');
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site || 'https://adrianacozzolino.com')} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site || 'https://adrianacozzolino.com')} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org Person Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Adriana Cozzolino",
+      "jobTitle": "Superintendente de Arte y Cultura de la Alcaldía de Baruta",
+      "worksFor": {
+        "@type": "GovernmentOrganization",
+        "name": "Alcaldía de Baruta - Baruta Cultural"
+      },
+      "alumniOf": "Universidad Santa María",
+      "url": "https://adrianacozzolino.com",
+      "image": "https://adrianacozzolino.com/images/adriana-cozzolino-hero.webp",
+      "sameAs": [
+        "https://www.instagram.com/adriario/",
+        "https://www.instagram.com/barutacultural/"
+      ],
+      "knowsAbout": [
+        "Gestión Cultural",
+        "Producción de Eventos Masivos",
+        "Espacio Público y Convivencia",
+        "CaminArte",
+        "Marketing Estratégico",
+        "Comunicación Social"
+      ]
+    })} />
+  </head>
+  <body class="bg-[#080b11] text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-black">
+    <slot />
+  </body>
+</html>
