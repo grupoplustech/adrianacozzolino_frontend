@@ -2,15 +2,16 @@ BEGIN:VCARD
 VERSION:3.0
 N:Cozzolino;Adriana;Carolina;;
 FN:Adriana Carolina Cozzolino
-ORG:Alcaldía de Baruta;Servicio Autónomo de Arte y Cultura
-TITLE:Superintendente de Arte y Cultura | Productora Ejecutiva
-ROLE:Dirección de Proyectos Culturales y Estrategia de Marcas
+ORG:Alcaldía de Baruta;Alfa-Branding
+TITLE:Superintendente de Arte y Cultura | Directora en Alfa-Branding
+ROLE:Dirección de Proyectos Culturales, Estrategia de Marcas y Eventos
 TEL;type=CELL,pref:+584242511908
 TEL;type=WORK:+584242511908
 EMAIL;type=INTERNET,pref:Adriccc812@gmail.com
 URL;type=pref:https://adrianacozzolino.com
 X-SOCIALPROFILE;type=instagram:https://www.instagram.com/adriario/
 X-SOCIALPROFILE;type=instagram;x-org=BarutaCultural:https://www.instagram.com/barutacultural/
+X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/adriana-cozzolino-278b11150/
 ADR;type=WORK,pref:;;Sede Baruta Cultural, Colinas de Bello Monte;Caracas;Miranda;1080;Venezuela
-NOTE:Licenciada en Comunicación Social (USM) y Especialista en Marketing. Más de 18 años en producción ejecutiva, eventos masivos y gestión cultural. Creadora e impulsora de CaminArte.
+NOTE:Licenciada en Comunicación Social (USM) y Especialista en Marketing. Más de 18 años en producción ejecutiva, branding, eventos masivos y gestión cultural. Creadora e impulsora de CaminArte.
 END:VCARD
